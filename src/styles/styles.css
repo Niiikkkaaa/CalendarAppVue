@@ -1,0 +1,490 @@
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column;
+  background-color: #E2C499;
+  background-size: cover;
+}
+
+@font-face {
+  font-family: "Circular Std";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/CircularStd-Book.woff2") format("woff2"), url("../fonts/CircularStd-Book.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Circular Std";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/CircularStd-Bold.woff2") format("woff2"), url("../fonts/CircularStd-Bold.woff") format("woff");
+  font-display: swap;
+}
+
+.main {
+  margin: 0 auto;
+  grid-template-columns: 296px 1fr;
+  width: 1920px;
+  height: 1080px;
+  background-color: #E2C499;
+}
+
+.content_wrapper {
+  width: 1630px;
+  display: grid;
+}
+
+.content_wrapper_calendar {
+  display: flex;
+  flex-direction: column;
+  padding: 110px 148px 100px 0;
+}
+
+.calendar_navigation_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.radius_button_primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 23px;
+  min-height: 44px;
+  border-radius: 8px;
+  font-family: "Circular Std", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  background-color: #896E69;
+  color: #ffffff;
+  border: 2px solid #896E69;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.radius_button_primary:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.radius_button_primary_planner {
+  height: 48px;
+}
+
+.calendar_calendar_table {
+  display: block;
+  margin-top: 24px;
+  width: 1630px;
+  border-collapse: collapse;
+}
+
+.calendar_calendar_table th {
+  box-sizing: border-box;
+  background-color: #896E690f;
+  border: 1px solid #896E69;
+  height: 100px;
+  width: 185px;
+}
+
+.calendar_calendar_table td {
+  box-sizing: borde-box;
+  border: 1px solid #896E69;
+  height: 130px;
+  padding: 8px;
+  width: 185px;
+}
+
+.calendar_header_cell {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 18px 0;
+}
+
+.calendar_header_content {
+  font-family: "Circular Std", "Arial", sans-serif;
+  font-size: 21px;
+  line-height: 10px;
+  font-weight: 500;
+  color: #896E69;
+}
+
+.calendar_header_time {
+  font-family: "Circular Std", "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 10px;
+  font-weight: 500;
+  color: #896E69;
+}
+
+.calendar_sessions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+
+.calendar_add_button {
+  display: block;
+  height: 48px;
+  background-color: transparent;
+  border: 1px dashed #896E69c0;
+  font-family: "Circular Std", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 700;
+  color: #896E69;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.32);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
+.popup_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  align-items: center;
+  min-width: 520px;
+  min-height: 204px;
+  transform: translate(-50%, -50%);
+  background-color: #F1D3BC;
+  border-radius: 4px;
+}
+
+.popup_header {
+  font-family: "Circular Std", "Arial", sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #fafafa;
+  text-align: center;
+}
+
+.planner_event {
+  display: flex;
+  width: 100%;
+  gap: 0 16px;
+  margin-top: 16px;
+}
+
+.planner_event_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.planner_event_field_header {
+  display: block;
+  font-family: "Circular Std", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #896E69;
+  margin-bottom: 8px;
+}
+
+.input {
+  height: 56px;
+  margin-bottom: 10px;
+  background-color: #F1D3BC;
+  border: 1px solid #283847;
+  border-radius: 4px;
+  border-color: #896E69;
+  padding: 16px;
+  font-family: "Circular Std", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #283847;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+}
+
+.input::placeholder {
+  color: #fafafa ;
+}
+
+.input:hover {
+  background-color: #896E69 ;
+}
+
+.input_priority {
+  width: 55px;
+}
+
+.input_priority:hover {
+  background-color: #F1D3BC;
+}
+
+.input_priority_container {
+  width: 400px;
+  height: 56px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.calendar_cell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar_cell_header {
+  font-family: "Circular Std", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #896E69;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.calendar_cell_game_plan .calendar_cell_time {
+  color: #fafafa;
+}
+
+.calendar_cell {
+  width: 200px;
+  word-wrap: break-word;
+}
+
+.calendar_add_button {
+  cursor: pointer;
+}
+
+.calendar_cell_striped {
+  display: none;
+  position: absolute;
+  height: auto;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  left: 8px;
+}
+
+td:hover > .calendar_cell_striped {
+  display: flex;
+  align-items: center;
+}
+
+td:hover > .calendar_cell_game_plan {
+  display: none;
+}
+
+.calendar_cell_header {
+  word-wrap: break-word;
+}
+
+.calendar_priority {
+  display: flex;
+  width: 100%;
+  height: 68px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.dropdown {
+  display: none;
+  z-index: 10;
+  position: absolute;
+  box-sizing: border-box;
+  width: 240px;
+  left: 116px;
+  top: 44px;
+  flex-direction: column;
+  list-style-type: none;
+  background-color: #F1D3BC;
+  padding: 8px;
+  margin: 0;
+  border-radius: 4px;
+  box-shadow: 8px 8px 16px 0 #896E6914;
+}
+
+.dropdown_priority {
+  width: 100px;
+  top: auto;
+  bottom: 0;
+  right: -100px;
+  left: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.dropdown_open {
+  display: flex;
+}
+
+.dropdown_item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.dropdown_item:hover {
+  background-color: #bc9a94;
+}
+
+.dropdown_item::after {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  right: -25px;
+}
+
+.dropdown_content {
+  margin-right: auto;
+  font-family: "Circular Std", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 36px;
+  font-weight: 450;
+  color: #896E69;
+}
+
+.dropdown_content_red {
+  color: #EF4053;
+}
+
+.dropdown_item_active .dropdown_content {
+  color: #896E69;
+}
+
+.dropdown_item_edit .dropdown_content {
+  color: #896E6955;
+}
+
+.dropdown_item_disabled:hover .dropdown_content {
+  color: #283847;
+}
+
+.dropdown_team_performance .dropdown_item:hover .dropdown_content {
+  color: #fafafa;
+}
+
+.popup_button_container {
+  display: flex;
+  margin-top: 24px;
+  gap: 0 12px;
+}
+
+.popup_button_container_right {
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.radius_button_secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 12px 23px;
+  border-radius: 8px;
+  font-family: "Circular Std", "Arial", "sans-serif";
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  background-color: transparent;
+  color: #896E69;
+  border: 2px solid #896E69;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.radius_button_secondary:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.radius_button_secondary:focus {
+  background-color: #0B161D;
+}
+
+.radius_button_secondary:active {
+  background-color: #896E6949;
+}
+
+.radius_button_secondary:disabled {
+  opacity: 0.32;
+}
+
+.radius_button_secondary_margin-right {
+  margin-right: auto;
+}
+
+.priority_1 {
+  background-color: #33ff00;
+}
+
+.priority_2 {
+  background-color: #66ff00;
+}
+
+.priority_3 {
+  background-color: #99ff00;
+}
+
+.priority_4 {
+  background-color: #ccff00;
+}
+
+.priority_5 {
+  background-color: #FFFF00;
+}
+
+.priority_6 {
+  background-color: #FFCC00;
+}
+
+.priority_7 {
+  background-color: #ff9900;
+}
+
+.priority_8 {
+  background-color: #ff6600;
+}
+
+.priority_9 {
+  background-color: #FF3300;
+}
+
+.priority_10 {
+  background-color: #FF0000;
+}
