@@ -34,20 +34,19 @@ body {
 .main {
   margin: 0 auto;
   grid-template-columns: 296px 1fr;
-  width: 1920px;
-  height: 1080px;
   background-color: #E2C499;
 }
 
 .content_wrapper {
   width: 1630px;
+  margin: 0 auto;
   display: grid;
 }
 
 .content_wrapper_calendar {
   display: flex;
   flex-direction: column;
-  padding: 110px 148px 100px 0;
+  padding: 0 75px
 }
 
 .calendar_navigation_container {
